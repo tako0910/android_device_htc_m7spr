@@ -1,5 +1,5 @@
-#
-# Copyright (C) 2011 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,25 +12,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-# call the proprietary setup
-$(call inherit-product-if-exists, vendor/htc/m7wlj/m7wlj-vendor.mk)
+$(call inherit-product, device/htc/m7wlj/full_m7wlj.mk)
 
-# overlays
-DEVICE_PACKAGE_OVERLAYS += device/htc/m7wlj/overlay
+# Inherit Lineage full phone configuration
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# common overlays
-DEVICE_PACKAGE_OVERLAYS += device/htc/m7-common/overlay-cdma
+# Device naming
+PRODUCT_NAME := lineage_m7wlj
 
-# local overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
-# FM radio
-#PRODUCT_PACKAGES += \
-#    FM2 \
-#    libqcomfm_jni \
-#    qcom.fmradio
-
-# Inherit from m7-common
-$(call inherit-product, device/htc/m7-common/m7-common.mk)
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=HTL22 BUILD_ID=KOT49H BUILD_FINGERPRINT="htc/m7_jp_kdi/m7wlj:4.4.2/KOT49H/363468.12:user/release-keys" PRIVATE_BUILD_DESC="3.13.970.12 CL363468 release-keys"
