@@ -36,5 +36,8 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl
 
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.consumerir.xml:system/etc/permissions/android.hardware.consumerir.xml
+
 # Inherit from m7-common
 $(call inherit-product, device/htc/m7-common/m7-common.mk)
